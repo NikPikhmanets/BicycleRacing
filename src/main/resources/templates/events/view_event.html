@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="uk">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>View event</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/uploadFile.js"></script>-->
+</head>
+<body>
+<th:block th:include="/navbar">nav</th:block>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${event.title}">Name event</h5>
+            <p class="card-text">Time start:</p>
+            <p class="card-text">
+                <small class="text-muted" th:text="${event.timeStart}">timeStart</small>
+            </p>
+            <p class="card-text">Time limit:</p>
+            <p class="card-text">
+                <small class="text-muted" th:text="${event.timeLimit}">timeLimit</small>
+            </p>
+            <p class="card-text">Distance:</p>
+            <p class="card-text">
+                <small class="text-muted" th:text="${event.distance}">distance</small>
+            </p>
+            <p class="card-text">Details</p>
+            <p class="card-text" th:text="${event.content}">Details</p>
+            <form action="" th:action="@{/upload}" method="post" enctype="multipart/form-data" id="upload-file-form">
+            <!--<form action="" method="post" enctype="multipart/form-data" id="upload-file-form">-->
+                <div>
+                    <input type="hidden" name="eventId" value="" th:value="${event.id}"/>
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    Upload your gpx file for get result: <input id="upload-file-input" type="file" name="uploadfile">
+                    <input type="submit" value="Upload" class="btn btn-primary" id="submitButton">
+                    <span id="upload-file-message"></span>
+                    <div th:if="${result}">
+                        <h5 style="color:blue" th:text="${result}"></h5>
+                    </div> <div th:if="${error}">
+                        <h5 style="color:red" th:text="${error}"></h5>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

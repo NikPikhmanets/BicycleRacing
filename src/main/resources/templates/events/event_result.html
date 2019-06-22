@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="uk">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Velo racing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<th:block th:include="/navbar">nav</th:block>
+<div class="container-fluid">
+
+    <a href="#" th:href="@{/download(type='pdf',eventId=(${eventResultPage.event.id}))}" class="btn btn-primary">Save to pdf</a>
+    <a href="#" th:href="@{/download(type='excel',eventId=(${eventResultPage.event.id}))}" class="btn btn-primary">Save to excel</a>
+    <br><br>
+
+    <h5 th:text="${eventResultPage.event.title}">Name Event</h5>
+
+    <table class="table table-striped">
+        <thead>
+
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">user</th>
+            <th scope="col">Time</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="eventResult : ${eventResultPage.eventResults}">
+            <tr>
+                <td th:text="${eventResult.id}"></td>
+                <td th:text="${eventResult.username}"></td>
+                <td th:text="${eventResult.time}"></td>
+                <td th:text="${eventResult.status}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+ALTER TABLE event_registr ADD COLUMN track_id INTEGER REFERENCES track (id)
