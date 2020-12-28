@@ -1,10 +1,14 @@
 package com.bicycle.racing.controller;
 
+import com.bicycle.racing.model.User;
 import com.bicycle.racing.service.EventRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+//@RestController
+//@RequestMapping("/users")
 public class UserController {
 
     private final EventRegistrationService eventRegistrationService;
@@ -12,6 +16,11 @@ public class UserController {
     @Autowired
     public UserController(EventRegistrationService eventRegistrationService) {
         this.eventRegistrationService = eventRegistrationService;
+    }
+
+    @GetMapping
+    public User getUserById() {
+        return null;
     }
 
 //    @GetMapping("/profile")

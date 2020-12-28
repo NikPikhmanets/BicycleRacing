@@ -1,9 +1,8 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'org.springframework.boot' version '2.2.12.RELEASE'
 }
 
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
@@ -12,8 +11,8 @@ repositories {
 }
 
 ext {
-    javaxVersion = "2.2.4"
-    springBootVersion = "2.2.0.RELEASE"
+    springBootVersion = "2.2.12.RELEASE"
+    springVersion = "5.1.5.RELEASE"
     postgreVersion = "42.2.5"
     flywayVersion = "5.2.4"
     ioUtilsVersion = "2.6"
@@ -22,22 +21,22 @@ ext {
 }
 
 dependencies {
-    implementation "javax.xml.bind:jaxb-api:${javaxVersion}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
-    implementation "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}"
 
     implementation "org.flywaydb:flyway-core:${flywayVersion}"
     implementation "org.postgresql:postgresql:${postgreVersion}"
 
     implementation "commons-io:commons-io:${ioUtilsVersion}"
 
-    implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
-    implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+    implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
+//    implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
+//    implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
-    implementation 'org.projectlombok:lombok:1.18.16'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
     implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
     implementation group: 'org.apache.poi', name: 'poi', version: '4.1.0'

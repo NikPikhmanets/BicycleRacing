@@ -16,9 +16,9 @@ public class EventRowMapper implements RowMapper<Event> {
                 .id(rs.getInt("id"))
                 .type(rs.getString("type"))
                 .title(rs.getString("title"))
-                .sampleTrackId(rs.getInt("sampleTrackId"))
-                .timeStart(rs.getObject("timeStart", LocalDateTime.class))
-                .timeLimit(rs.getObject("timeLimit", LocalTime.class))
+                .sampleTrackId(rs.getInt("track_sample_id"))
+                .timeStart(rs.getObject("time_start", LocalDateTime.class))
+                .timeLimit(rs.getObject("time_limit", LocalTime.class))
                 .distance(rs.getInt("distance"))
                 .content(rs.getString("content"))
                 .build();

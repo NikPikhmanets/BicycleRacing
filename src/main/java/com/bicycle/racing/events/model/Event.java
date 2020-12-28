@@ -1,15 +1,13 @@
 package com.bicycle.racing.events.model;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-@Getter
-@Setter
+@Data
 @Builder
 public class Event {
 
