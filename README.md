@@ -1,6 +1,6 @@
 # BicycleRacing
 
-Final project course JavaToWeb (GeekHub) 
+Pet project 
 
 ## Description
 
@@ -14,4 +14,3 @@ Final project course JavaToWeb (GeekHub)
 ## Authors and acknowledgment
 
 Authors Mykola Pikhmanets  
-Thanks to the mentors: Dmytro Kolodiazhnyi, Ruslan Pistriak, Jura Kor
