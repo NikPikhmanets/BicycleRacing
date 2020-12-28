@@ -1,5 +1,7 @@
 package com.bicycle.racing.model;
 
+import com.bicycle.racing.events.model.Event;
+
 import java.util.List;
 
 public class EventResultPage {

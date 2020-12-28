@@ -16,6 +16,7 @@ ext {
     springBootVersion = "2.2.0.RELEASE"
     postgreVersion = "42.2.5"
     flywayVersion = "5.2.4"
+    ioUtilsVersion = "2.6"
     swaggerVersion = "3.0.0"
     springSecurityTest = "5.3.1.RELEASE"
 }
@@ -31,8 +32,12 @@ dependencies {
     implementation "org.flywaydb:flyway-core:${flywayVersion}"
     implementation "org.postgresql:postgresql:${postgreVersion}"
 
+    implementation "commons-io:commons-io:${ioUtilsVersion}"
+
     implementation "io.springfox:springfox-swagger2:${swaggerVersion}"
     implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+
+    implementation 'org.projectlombok:lombok:1.18.16'
 
     implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
     implementation group: 'org.apache.poi', name: 'poi', version: '4.1.0'

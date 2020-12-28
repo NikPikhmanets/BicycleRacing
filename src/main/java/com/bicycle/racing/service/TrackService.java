@@ -1,5 +1,6 @@
 package com.bicycle.racing.service;
 
+import com.bicycle.racing.events.EventServiceImpl;
 import com.bicycle.racing.gpx.data.GPX;
 import com.bicycle.racing.gpx.data.Track;
 import com.bicycle.racing.gpx.data.Waypoint;
@@ -18,13 +19,13 @@ public class TrackService {
     private static final int ABSENT_TRACK = -1;
 
     private final TrackRepository trackRepository;
-    private final EventService eventService;
+    private final EventServiceImpl eventService;
     private final WaypointService waypointService;
     private final EventRegistrationService eventRegistrationService;
 
     @Autowired
     public TrackService(TrackRepository trackRepository,
-                        EventService eventService,
+                        EventServiceImpl eventService,
                         WaypointService waypointService,
                         EventRegistrationService eventRegistrationService) {
         this.trackRepository = trackRepository;

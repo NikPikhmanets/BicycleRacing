@@ -1,9 +1,10 @@
 package com.bicycle.racing.service;
 
 import com.bicycle.racing.analysis.AnalysisTrack;
+import com.bicycle.racing.events.EventServiceImpl;
 import com.bicycle.racing.gpx.data.GPX;
 import com.bicycle.racing.gpx.data.Waypoint;
-import com.bicycle.racing.model.Event;
+import com.bicycle.racing.events.model.Event;
 import com.bicycle.racing.model.EventResult;
 import com.bicycle.racing.model.form.UserFileForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,13 @@ import java.util.List;
 public class PresenterService {
 
     private final TrackService trackService;
-    private final EventService eventService;
+    private final EventServiceImpl eventService;
     private final AnalysisTrack analysisTrack;
     private final EventResultService eventResultService;
 
     @Autowired
     public PresenterService(TrackService trackService,
-                            EventService eventService,
+                            EventServiceImpl eventService,
                             AnalysisTrack analysisTrack,
                             EventResultService eventResultService) {
 

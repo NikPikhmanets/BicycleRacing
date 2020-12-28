@@ -7,7 +7,7 @@ import com.bicycle.racing.gpx.GPXParser;
 import com.bicycle.racing.gpx.data.GPX;
 import com.bicycle.racing.gpx.data.Track;
 import com.bicycle.racing.gpx.data.Waypoint;
-import com.bicycle.racing.model.Event;
+import com.bicycle.racing.events.model.Event;
 import com.bicycle.racing.model.EventResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

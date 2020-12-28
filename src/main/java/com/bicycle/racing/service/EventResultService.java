@@ -1,6 +1,7 @@
 package com.bicycle.racing.service;
 
-import com.bicycle.racing.model.Event;
+import com.bicycle.racing.events.EventServiceImpl;
+import com.bicycle.racing.events.model.Event;
 import com.bicycle.racing.model.EventResult;
 import com.bicycle.racing.model.EventResultPage;
 import com.bicycle.racing.repository.EventResultRepository;
@@ -13,11 +14,11 @@ import java.util.List;
 public class EventResultService {
 
     private final EventResultRepository eventResultRepository;
-    private final EventService eventService;
+    private final EventServiceImpl eventService;
 
     @Autowired
     public EventResultService(EventResultRepository eventResultRepository,
-                              EventService eventService) {
+                              EventServiceImpl eventService) {
         this.eventResultRepository = eventResultRepository;
         this.eventService = eventService;
     }
