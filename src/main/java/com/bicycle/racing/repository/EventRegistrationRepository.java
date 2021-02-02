@@ -2,7 +2,7 @@ package com.bicycle.racing.repository;
 
 import com.bicycle.racing.repository.mapper.EventRegistrationRowMapper;
 import com.bicycle.racing.model.EventRegistration;
-import com.bicycle.racing.model.UserEvent;
+import com.bicycle.racing.users.model.UserEvent;
 import com.bicycle.racing.model.form.UserForm;
 import com.bicycle.racing.repository.mapper.UserEventRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

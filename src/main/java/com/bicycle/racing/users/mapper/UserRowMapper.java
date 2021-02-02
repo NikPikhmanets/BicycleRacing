@@ -1,6 +1,6 @@
-package com.bicycle.racing.repository.mapper;
+package com.bicycle.racing.users.mapper;
 
-import com.bicycle.racing.model.User;
+import com.bicycle.racing.users.model.User;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,6 @@ public class UserRowMapper implements RowMapper<User> {
         user.setUsername(rs.getString("username"));
         user.setFirstName(rs.getString("first_name"));
         user.setLastName(rs.getString("last_name"));
-        user.setPassword(rs.getString("password"));
 
         return user;
     }

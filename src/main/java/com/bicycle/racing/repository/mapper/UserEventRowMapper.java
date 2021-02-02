@@ -1,6 +1,6 @@
 package com.bicycle.racing.repository.mapper;
 
-import com.bicycle.racing.model.UserEvent;
+import com.bicycle.racing.users.model.UserEvent;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

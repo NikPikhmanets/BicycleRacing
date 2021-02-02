@@ -3,6 +3,7 @@ package com.bicycle.racing.service;
 import com.bicycle.racing.model.EventRegistration;
 import com.bicycle.racing.model.form.UserForm;
 import com.bicycle.racing.repository.EventRegistrationRepository;
+import com.bicycle.racing.users.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +11,11 @@ import org.springframework.stereotype.Service;
 public class EventRegistrationService {
 
     private final EventRegistrationRepository eventRegistrationRepository;
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
     public EventRegistrationService(EventRegistrationRepository eventRegistrationRepository,
-                                    UserService userService) {
+                                    UserServiceImpl userService) {
         this.eventRegistrationRepository = eventRegistrationRepository;
         this.userService = userService;
     }
@@ -30,9 +31,9 @@ public class EventRegistrationService {
     }
 
     public void saveTrackId(UserForm userForm) {
-        int userId = userService.getUserIdByUserName(userForm.getUsername());
-        userForm.setUserId(userId);
-        eventRegistrationRepository.saveTrackId(userForm);
+//        int userId = userService.getUserIdByUserName(userForm.getUsername());
+//        userForm.setUserId(userId);
+//        eventRegistrationRepository.saveTrackId(userForm);
     }
 
 //    public Page<UserEvent> getUserEventsPage(PageRequest pr, String username) {

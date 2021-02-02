@@ -1,26 +1,27 @@
-package com.bicycle.racing.controller;
+package com.bicycle.racing.users;
 
-import com.bicycle.racing.model.User;
-import com.bicycle.racing.service.EventRegistrationService;
+import com.bicycle.racing.users.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@RestController
-//@RequestMapping("/users")
+import java.util.List;
+
+@RestController
+@RequestMapping("/users")
 public class UserController {
 
-    private final EventRegistrationService eventRegistrationService;
+    private final UserService userService;
 
     @Autowired
-    public UserController(EventRegistrationService eventRegistrationService) {
-        this.eventRegistrationService = eventRegistrationService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
-    public User getUserById() {
-        return null;
+    public List<User> getUsers() {
+        return userService.getUsers();
     }
 
 //    @GetMapping("/profile")

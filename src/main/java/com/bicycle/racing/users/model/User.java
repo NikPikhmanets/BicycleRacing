@@ -1,4 +1,4 @@
-package com.bicycle.racing.model;
+package com.bicycle.racing.users.model;
 
 public class User {
 

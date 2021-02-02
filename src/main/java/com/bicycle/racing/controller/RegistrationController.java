@@ -1,22 +1,20 @@
 package com.bicycle.racing.controller;
 
 import com.bicycle.racing.service.SecurityService;
-import com.bicycle.racing.service.UserService;
+import com.bicycle.racing.users.UserServiceImpl;
 import com.bicycle.racing.validator.RegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 //@RestController
 //@RequestMapping("/registration")
 public class RegistrationController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
     private final SecurityService securityService;
     private final RegistrationValidator registrationValidator;
 
     @Autowired
-    public RegistrationController(UserService userService,
+    public RegistrationController(UserServiceImpl userService,
                                   SecurityService securityService,
                                   RegistrationValidator registrationValidator) {
         this.userService = userService;

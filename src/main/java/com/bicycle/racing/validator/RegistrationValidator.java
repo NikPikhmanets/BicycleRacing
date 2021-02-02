@@ -1,8 +1,8 @@
 package com.bicycle.racing.validator;
 
-import com.bicycle.racing.model.User;
+import com.bicycle.racing.users.model.User;
 import com.bicycle.racing.model.form.RegistrationForm;
-import com.bicycle.racing.service.UserService;
+import com.bicycle.racing.users.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -12,10 +12,10 @@ import org.springframework.validation.Validator;
 @Component
 public class RegistrationValidator implements Validator {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public RegistrationValidator(UserService userService) {
+    public RegistrationValidator(UserServiceImpl userService) {
         this.userService = userService;
     }
 
@@ -33,9 +33,9 @@ public class RegistrationValidator implements Validator {
         if (form.getUsername().length() < 2 || form.getUsername().length() > 32) {
             errors.rejectValue("username", "Size.userForm.username");
         }
-        if (userService.findByUsername(form.getUsername()) != null) {
-            errors.rejectValue("username", "Duplicate.userForm.username");
-        }
+//        if (userService.findByUsername(form.getUsername()) != null) {
+//            errors.rejectValue("username", "Duplicate.userForm.username");
+//        }
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
 
         if (form.getPassword().length() < 8 || form.getPassword().length() > 32) {

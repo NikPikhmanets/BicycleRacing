@@ -1,4 +1,4 @@
-package com.bicycle.racing.service;
+package com.bicycle.racing.users;
 
 import org.springframework.stereotype.Service;
 
