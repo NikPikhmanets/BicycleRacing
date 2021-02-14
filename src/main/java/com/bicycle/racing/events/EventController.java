@@ -1,6 +1,6 @@
 package com.bicycle.racing.events;
 
-import com.bicycle.racing.events.model.Event;
+import com.bicycle.racing.events.data.model.Event;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +14,15 @@ import java.util.List;
 @Api(tags = "Events")
 public class EventController {
 
-    private final EventService eventService;
+    private final EventService<Event> eventService;
 
     @Autowired
-    public EventController(EventService eventService) {
+    public EventController(EventService<Event> eventService) {
         this.eventService = eventService;
     }
 
     @GetMapping
     public List<Event> getEvents() {
-        return eventService.getEvents();
+        return eventService.getAll();
     }
 }

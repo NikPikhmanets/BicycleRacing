@@ -1,9 +1,10 @@
 package com.bicycle.racing.events;
 
-import com.bicycle.racing.events.model.Event;
-
 import java.util.List;
+import java.util.Optional;
 
-public interface EventRepository {
-    List<Event> findAll();
+public interface EventRepository<T> {
+    Optional<List<T>> findAll();
+
+    void insertList(List<T> list);
 }

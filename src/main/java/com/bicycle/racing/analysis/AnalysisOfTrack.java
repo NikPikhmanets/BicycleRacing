@@ -3,7 +3,7 @@ package com.bicycle.racing.analysis;
 
 import com.bicycle.racing.analysis.utils.DistanceUtils;
 import com.bicycle.racing.analysis.utils.LatLng;
-import com.bicycle.racing.events.model.Event;
+import com.bicycle.racing.events.data.model.Event;
 import com.bicycle.racing.file.ParserFile;
 import com.bicycle.racing.file.gpx.data.GPX;
 import com.bicycle.racing.file.gpx.data.Track;

@@ -1,4 +1,4 @@
-package com.bicycle.racing.events.model;
+package com.bicycle.racing.events.data.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +20,8 @@ public class Event {
     private LocalTime timeLimit;
     private int distance;
     private String content;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime createdAt;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private LocalDateTime editedAt;
 }

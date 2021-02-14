@@ -1,0 +1,2 @@
+INSERT INTO events (type, title, simple_track_id, time_start, time_limit, distance, content, created_at, edited_at)
+values (:type, :title, :sampleTrackId, :timeStart, :timeLimit, :distance, :content, :createdAt, :editedAt)
