@@ -1,9 +1,9 @@
 package com.bicycle.racing.service;
 
 import com.bicycle.racing.events.EventServiceImpl;
-import com.bicycle.racing.gpx.data.GPX;
-import com.bicycle.racing.gpx.data.Track;
-import com.bicycle.racing.gpx.data.Waypoint;
+import com.bicycle.racing.file.gpx.data.GPX;
+import com.bicycle.racing.file.gpx.data.Track;
+import com.bicycle.racing.file.gpx.data.Waypoint;
 import com.bicycle.racing.repository.TrackRepository;
 import com.bicycle.racing.model.form.UserFileForm;
 import com.bicycle.racing.model.form.UserForm;

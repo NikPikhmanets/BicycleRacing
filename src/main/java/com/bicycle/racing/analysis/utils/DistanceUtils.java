@@ -2,9 +2,6 @@ package com.bicycle.racing.analysis.utils;
 
 public class DistanceUtils {
 
-    private DistanceUtils() {
-    }
-
     public static double computeDistanceBetween(LatLng from, LatLng to) {
         return computeAngleBetween(from, to) * 6371009.0D;
     }
@@ -20,5 +17,8 @@ public class DistanceUtils {
 
     private static double distanceRadians(double lat1, double lng1, double lat2, double lng2) {
         return MathUtil.arcHav(MathUtil.havDistance(lat1, lat2, lng1 - lng2));
+    }
+
+    private DistanceUtils() {
     }
 }

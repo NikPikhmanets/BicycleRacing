@@ -1,6 +1,6 @@
 package com.bicycle.racing.repository.mapper;
 
-import com.bicycle.racing.gpx.data.Waypoint;
+import com.bicycle.racing.file.gpx.data.Waypoint;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

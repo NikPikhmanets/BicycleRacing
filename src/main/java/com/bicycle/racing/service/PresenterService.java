@@ -1,81 +1,65 @@
 package com.bicycle.racing.service;
 
-import com.bicycle.racing.analysis.AnalysisTrack;
-import com.bicycle.racing.events.EventServiceImpl;
-import com.bicycle.racing.gpx.data.GPX;
-import com.bicycle.racing.gpx.data.Waypoint;
-import com.bicycle.racing.events.model.Event;
-import com.bicycle.racing.model.EventResult;
-import com.bicycle.racing.model.form.UserFileForm;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-
-@Service
 public class PresenterService {
 
-    private final TrackService trackService;
-    private final EventServiceImpl eventService;
-    private final AnalysisTrack analysisTrack;
-    private final EventResultService eventResultService;
-
-    @Autowired
-    public PresenterService(TrackService trackService,
-                            EventServiceImpl eventService,
-                            AnalysisTrack analysisTrack,
-                            EventResultService eventResultService) {
-
-        this.trackService = trackService;
-        this.eventService = eventService;
-        this.analysisTrack = analysisTrack;
-        this.eventResultService = eventResultService;
-    }
-
-    public boolean saveUserTrackByEventId(UserFileForm userFileForm) {
-        GPX gpx = getGpx(userFileForm.getTrackFile());
-
-        if (gpx != null) {
-            List<Waypoint> trackWaypoints = analysisTrack.getTrackWaypoints(gpx);
-            trackService.saveTrackAndWaypoints(userFileForm, trackWaypoints);
-
-            List<Waypoint> simpleWaypoints = trackService.getSimpleWaypointsByTrackId(userFileForm.getEventId());
-            Event event = eventService.getEventById(userFileForm.getEventId());
-
-            EventResult eventResult = analysisTrack.analysisTrack(event, gpx, simpleWaypoints);
-            eventResult.setEventId(userFileForm.getEventId());
-            eventResult.setUsername(userFileForm.getUsername());
-            eventResultService.saveUserResult(eventResult);
-
-            return true;
-        }
-        return false;
-    }
-
-    public boolean saveEventAndSampleTrack(Event event, MultipartFile trackFile) {
-        GPX gpx = getGpx(trackFile);
-
-        if (gpx != null) {
-            int trackId = trackService.saveSampleTrackAndWaypoint(trackFile.getOriginalFilename(), gpx);
-            event.setSampleTrackId(trackId);
-            eventService.saveEvent(event);
-
-            return true;
-        }
-        return false;
-    }
-
-    private GPX getGpx(MultipartFile trackFile) {
-        try (InputStream inputStream = trackFile.getInputStream()) {
-
-            return analysisTrack.parseGpxFile(inputStream);
-        } catch (IOException e) {
-            System.err.println("Failed get stream");
-
-            return null;
-        }
-    }
+//    private final TrackService trackService;
+//    private final EventServiceImpl eventService;
+//    private final AnalysisOfTrack analysisOfTrack;
+//    private final EventResultService eventResultService;
+//
+//    @Autowired
+//    public PresenterService(TrackService trackService,
+//                            EventServiceImpl eventService,
+//                            AnalysisOfTrack analysisOfTrack,
+//                            EventResultService eventResultService) {
+//
+//        this.trackService = trackService;
+//        this.eventService = eventService;
+//        this.analysisOfTrack = analysisOfTrack;
+//        this.eventResultService = eventResultService;
+//    }
+//
+//    public boolean saveUserTrackByEventId(UserFileForm userFileForm) {
+//        GPX gpx = getGpx(userFileForm.getTrackFile());
+//
+//        if (gpx != null) {
+//            List<Waypoint> trackWaypoints = analysisOfTrack.getTrackWaypoints(gpx);
+//            trackService.saveTrackAndWaypoints(userFileForm, trackWaypoints);
+//
+//            List<Waypoint> simpleWaypoints = trackService.getSimpleWaypointsByTrackId(userFileForm.getEventId());
+//            Event event = eventService.getEventById(userFileForm.getEventId());
+//
+//            EventResult eventResult = analysisOfTrack.analysisTrack(event, gpx, simpleWaypoints);
+//            eventResult.setEventId(userFileForm.getEventId());
+//            eventResult.setUsername(userFileForm.getUsername());
+//            eventResultService.saveUserResult(eventResult);
+//
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean saveEventAndSampleTrack(Event event, MultipartFile trackFile) {
+//        GPX gpx = getGpx(trackFile);
+//
+//        if (gpx != null) {
+//            int trackId = trackService.saveSampleTrackAndWaypoint(trackFile.getOriginalFilename(), gpx);
+//            event.setSampleTrackId(trackId);
+//            eventService.saveEvent(event);
+//
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    private GPX getGpx(MultipartFile trackFile) {
+//        try (InputStream inputStream = trackFile.getInputStream()) {
+//
+//            return analysisOfTrack.parseGpxFile(inputStream);
+//        } catch (IOException e) {
+//            System.err.println("Failed get stream");
+//
+//            return null;
+//        }
+//    }
 }

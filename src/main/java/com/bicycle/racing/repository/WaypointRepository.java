@@ -1,6 +1,6 @@
 package com.bicycle.racing.repository;
 
-import com.bicycle.racing.gpx.data.Waypoint;
+import com.bicycle.racing.file.gpx.data.Waypoint;
 import com.bicycle.racing.model.BatchWaypoint;
 import com.bicycle.racing.repository.mapper.WaypointRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;

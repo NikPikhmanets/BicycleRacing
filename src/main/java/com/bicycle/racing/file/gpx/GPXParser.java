@@ -1,9 +1,10 @@
-package com.bicycle.racing.gpx;
+package com.bicycle.racing.file.gpx;
 
-import com.bicycle.racing.gpx.data.GPX;
-import com.bicycle.racing.gpx.data.Route;
-import com.bicycle.racing.gpx.data.Waypoint;
-import com.bicycle.racing.gpx.data.Track;
+import com.bicycle.racing.file.ParserFile;
+import com.bicycle.racing.file.gpx.data.GPX;
+import com.bicycle.racing.file.gpx.data.Route;
+import com.bicycle.racing.file.gpx.data.Track;
+import com.bicycle.racing.file.gpx.data.Waypoint;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -19,9 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class GPXParser {
+public class GPXParser implements ParserFile<GPX> {
 
-    public GPX parseGPX(InputStream in) throws Exception {
+    @Override
+    public GPX parser(InputStream in) throws Exception {
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document doc = builder.parse(in);
         Node firstChild = doc.getFirstChild();

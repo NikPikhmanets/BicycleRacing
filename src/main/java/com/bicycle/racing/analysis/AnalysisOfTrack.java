@@ -4,13 +4,11 @@ package com.bicycle.racing.analysis;
 import com.bicycle.racing.analysis.utils.DistanceUtils;
 import com.bicycle.racing.analysis.utils.LatLng;
 import com.bicycle.racing.events.model.Event;
-import com.bicycle.racing.gpx.GPXParser;
-import com.bicycle.racing.gpx.data.GPX;
-import com.bicycle.racing.gpx.data.Track;
-import com.bicycle.racing.gpx.data.Waypoint;
+import com.bicycle.racing.file.ParserFile;
+import com.bicycle.racing.file.gpx.data.GPX;
+import com.bicycle.racing.file.gpx.data.Track;
+import com.bicycle.racing.file.gpx.data.Waypoint;
 import com.bicycle.racing.model.EventResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.time.LocalDateTime;
@@ -20,26 +18,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Component
-public class AnalysisTrack {
+import static com.bicycle.racing.analysis.Constants.*;
 
-    public static final int RADIUS = 5;
-    public static final boolean COMPLETED = true;
-    public static final boolean FAILED = false;
-    public static final String BREVET = "Brevet";
-    public static final int FIRST_WAYPOINT = 0;
+public class AnalysisOfTrack<T> {
 
-    private final GPXParser gpxParser;
+    private final ParserFile<T> parserFile;
     private List<Waypoint> waypoints;
 
-    @Autowired
-    public AnalysisTrack(GPXParser gpxParser) {
-        this.gpxParser = gpxParser;
+    public AnalysisOfTrack(ParserFile<T> parserFile) {
+        this.parserFile = parserFile;
     }
 
-    public GPX parseGpxFile(InputStream inputStream) {
+    public T parseGpxFile(InputStream inputStream) {
         try {
-            return gpxParser.parseGPX(inputStream);
+            return parserFile.parser(inputStream);
         } catch (Exception e) {
             System.err.println("Failed parse gpx file");
             return null;

@@ -2,9 +2,6 @@ package com.bicycle.racing.analysis.utils;
 
 public class MathUtil {
 
-    private MathUtil() {
-    }
-
     public static double hav(double x) {
         double sinHalf = Math.sin(x * 0.5D);
         return sinHalf * sinHalf;
@@ -16,5 +13,8 @@ public class MathUtil {
 
     public static double havDistance(double lat1, double lat2, double dLng) {
         return hav(lat1 - lat2) + hav(dLng) * Math.cos(lat1) * Math.cos(lat2);
+    }
+
+    private MathUtil() {
     }
 }
