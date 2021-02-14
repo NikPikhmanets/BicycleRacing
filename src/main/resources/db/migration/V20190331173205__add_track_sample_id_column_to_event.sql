@@ -1,1 +1,0 @@
-ALTER TABLE event ADD COLUMN track_sample_id INTEGER REFERENCES track_sample (id);

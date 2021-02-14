@@ -1,6 +1,0 @@
-CREATE TABLE track
-(
-  id   SERIAL NOT NULL
-    CONSTRAINT track_pkey PRIMARY KEY,
-  name VARCHAR(100)
-);
