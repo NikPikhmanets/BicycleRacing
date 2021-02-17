@@ -25,8 +25,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-security:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-data-rest:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
 
-    implementation "org.flywaydb:flyway-core:${flywayVersion}"
     implementation "org.postgresql:postgresql:${postgreVersion}"
 
     implementation "commons-io:commons-io:${ioUtilsVersion}"
