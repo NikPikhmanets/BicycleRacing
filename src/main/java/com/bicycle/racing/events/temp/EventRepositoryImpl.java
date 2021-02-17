@@ -1,4 +1,4 @@
-package com.bicycle.racing.events;
+package com.bicycle.racing.events.temp;
 
 import com.bicycle.racing.events.data.mapper.EventRowMapper;
 import com.bicycle.racing.events.data.model.Event;

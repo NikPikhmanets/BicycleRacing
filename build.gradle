@@ -45,5 +45,5 @@ dependencies {
 }
 
 bootJar {
-    archiveFileName = 'app.jar'
+    archiveFileName = 'app-bicycle.jar'
 }
