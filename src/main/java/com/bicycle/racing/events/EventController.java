@@ -14,10 +14,10 @@ import java.util.List;
 @Api(tags = "Events")
 public class EventController {
 
-    private final EventService<Event> eventService;
+    private final EventService eventService;
 
     @Autowired
-    public EventController(EventService<Event> eventService) {
+    public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 

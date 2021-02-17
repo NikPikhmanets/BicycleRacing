@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EventServiceImpl implements EventService<Event> {
+public class EventServiceImpl implements EventService {
 
-    private final EventJpaRepository repository;
+    private final EventRepository repository;
 
     @Autowired
-    public EventServiceImpl(EventJpaRepository repository) {
+    public EventServiceImpl(EventRepository repository) {
         this.repository = repository;
     }
 
@@ -30,8 +30,6 @@ public class EventServiceImpl implements EventService<Event> {
 
     @Override
     public List<Event> getAll() {
-//        Optional<List<Event>> optionalEvents = repository.findAll();
-//        return optionalEvents.orElse(Collections.emptyList());
         return repository.findAll();
     }
 
@@ -42,7 +40,7 @@ public class EventServiceImpl implements EventService<Event> {
 
     @Override
     public void save(Event event) {
-        repository.save(event);
+//        repository.save(event);
     }
 
     @Override

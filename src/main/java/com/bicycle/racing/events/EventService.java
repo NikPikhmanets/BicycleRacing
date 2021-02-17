@@ -1,15 +1,17 @@
 package com.bicycle.racing.events;
 
+import com.bicycle.racing.events.data.model.Event;
+
 import java.util.List;
 
-public interface EventService<T> {
-    List<T> getAll();
+public interface EventService {
+    List<Event> getAll();
 
-    T getById(long id);
+    Event getById(long id);
 
-    void save(T t);
+    void save(Event t);
 
-    void saveList(List<T> list);
+    void saveList(List<Event> list);
 
     int getSampleTrackId(long id);
 }
